@@ -16,11 +16,9 @@ function Photos() {
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [startingPage, setStartingPage] = useState(1);
-    const [currentEndingPage, setCurrentEndingPage] = useState(10);
+    const [currentEndingPage, setCurrentEndingPage] = useState(6);
     const [photoDetails, setPhotoDetails] = useState([]);
-    const [pagesPerpage, setPagesPerPage] = useState([
-        1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-    ]);
+    const [pagesPerpage, setPagesPerPage] = useState([1, 2, 3, 4, 5, 6]);
 
     useEffect(() => {
         setLoading(true);
@@ -45,20 +43,20 @@ function Photos() {
     };
 
     const firstPage = () => {
-        getPagesNo(1, 10);
+        getPagesNo(1, 6);
     };
     const lastPage = () => {
-        getPagesNo(91, 100);
+        getPagesNo(95, 100);
     };
     const NextPage = () => {
-        setStartingPage(startingPage + 10);
-        setCurrentEndingPage(currentEndingPage + 10);
-        getPagesNo(startingPage + 10, currentEndingPage + 10);
+        setStartingPage(startingPage + 6);
+        setCurrentEndingPage(currentEndingPage + 6);
+        getPagesNo(startingPage + 6, currentEndingPage + 6);
     };
     const previousPage = () => {
-        setStartingPage(startingPage - 10);
-        setCurrentEndingPage(currentEndingPage - 10);
-        getPagesNo(startingPage - 10, currentEndingPage - 10);
+        setStartingPage(startingPage - 6);
+        setCurrentEndingPage(currentEndingPage - 6);
+        getPagesNo(startingPage - 6, currentEndingPage - 6);
     };
     const ActivePageNumber = (pageno) => {
         setCurrentPage(pageno);
